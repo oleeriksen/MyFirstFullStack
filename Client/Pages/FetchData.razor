@@ -39,9 +39,11 @@ else
 @code {
     private WeatherForecast[]? forecasts;
 
+    private string serverURL = "myfirstfullstack.azurewebsites.net";
+
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("https://localhost:7201/weatherforecast");
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>(serverURL + "/weatherforecast");
     }
 
     public class WeatherForecast
